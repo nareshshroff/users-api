@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    express:
+         image: node:7.7.2-alpine
+         container_name: users-api
+         ports:
+            - 3000:3000
+         volumes:
+            - .:/src/app/
+            - /src/app/node_modules
+         working_dir: /src/app/
+         links:
+            - mongodb
+         command: npm start
+
+    mongodb:
+        image: mongo:3.6.2
+        container_name: mongo-container
+        ports:
+            - 27017:27017
