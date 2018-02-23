@@ -2,7 +2,10 @@ version: '3'
 
 services:
     express:
-         image: node:7.7.2-alpine
+         #image: node:7.7.2-alpine
+         build: .
+            #context: .
+            #dockerfile: Dockerfile
          container_name: users-api
          ports:
             - 3000:3000
@@ -18,4 +21,4 @@ services:
         image: mongo:3.6.2
         container_name: mongo-container
         ports:
-            - 27017:27017
+            - 27017:27017                                                                   
